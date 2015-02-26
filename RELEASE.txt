@@ -1,0 +1,51 @@
+Peaberry CW
+Copyright 2015 David Turnbull
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+
+System Requirements
+-------------------
+Windows Vista/7/8 or newer
+Mac OS X 10.7 or newer
+
+
+Windows Notes
+-------------
+The Peaberry SDR device driver (libusb-win32) must be properly installed.
+The construction manual provides information about this.
+
+The Visual C runtime must be on your system. It probably is already if you
+have installed other applications. If not, run vcredist_x86.exe to install it.
+
+There's no installer for Peaberry CW. Unzip the files and run PeaberryCW.exe.
+Nothing is stored in the registry. Settings are stored in your user directory.
+Microsoft makes this a moving target but here's a couple places it might be:
+
+C:\Users\YourUserName\AppData\Roaming\AE9RB\PeaberryCW.ini
+C:\Documents and Settings\YourUserName\Application Data\AE9RB\PeaberryCW.ini
+
+Peaberry CW uses WASAPI exclusive-mode for its audio interface. You will not
+hear sounds from other applications while Peaberry CW is running. This is
+intentional and unavoidable. Because this API is only used for professional
+audio, some device drivers may be optimistically reporting more capabilities
+than are actually present. Peaberry CW does its best to detect these bogus
+drivers but there's no 100% certain way to do so.
+
+If you're having troubles with sound output, you can force the application to
+skip trying the better method by setting eventSpeaker=false in PeaberryCW.ini.
+
+
+Macintosh Notes
+---------------
+No driver, runtime, or special consideration for audio is needed.
+Simply run PeaberryCW.app. Settings are stored in the Mac OS X defaults
+system and may be deleted with this command:
+
+$ defaults delete com.ae9rb.PeaberryCW
